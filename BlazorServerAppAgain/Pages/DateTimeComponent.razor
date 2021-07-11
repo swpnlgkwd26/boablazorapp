@@ -1,0 +1,95 @@
+﻿<h3>DateTimeComponent :  @DateTime.Now.ToString()</h3>
+
+Show Or Hide
+<input type="checkbox" @bind="IsChecked" />
+@*Destination*@
+@if (IsChecked)
+{
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                <input type="text" @bind="@productViewModel.Name"
+                       @bind:event="oninput" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Price
+            </td>
+            <td>
+                <input type="text" @bind="@productViewModel.Price"
+                       @bind:event="oninput" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category
+            </td>
+            <td>
+                <input type="text" @bind="@productViewModel.Category"
+                       @bind:event="oninput" />
+            </td>
+        </tr>
+    </table>
+}
+
+<p class="alert">
+    @*Destination*@
+    @productViewModel.Name, @productViewModel.Price, @productViewModel.Category
+</p>
+
+<hr/>
+<h3> Selected Category =@SelectedCategory </h3>
+<select @bind="SelectedCategory">
+    <option value=""> Select</option>
+    @foreach (var category in categories)
+    {
+        <option value="@category">@category</option>
+    }
+
+</select>
+<button class="@redColor" @onclick="AddFunction"> Save</button>
+<input type="text"  @bind="ProductName"/>
+<button class="@yellowColor" @onclick="()=>SearchFunction(ProductName)"> Cancel</button>
+@code {
+
+    public string  ProductName { get; set; }
+
+    public void AddFunction()
+    {
+        Console.WriteLine("Add Function Called");
+    }
+    public void SearchFunction(string productName)
+    {
+        Console.WriteLine(productName);
+    }
+
+
+
+    string redColor = "red-background";
+    string yellowColor = "yellow-background";
+
+
+    public string SelectedCategory { get; set; }
+
+    string[] categories = { "Cricket", "Chess", "Soccer" };
+
+
+    // Declare an Property
+    public bool IsChecked { get; set; }
+
+    // Source
+    ProductViewModel productViewModel = new ProductViewModel
+    {
+        ProductID = 1,
+        Category = "Chess",
+        Description = "Chess",
+        MfgDate = DateTime.Now,
+        Name = "Chess Board",
+        Price = 100
+    };
+
+}

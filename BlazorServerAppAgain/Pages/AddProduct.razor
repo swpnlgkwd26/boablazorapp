@@ -1,0 +1,48 @@
+﻿@page "/addproduct"
+@inject IStoreRepository _repository
+@inject NavigationManager   NavigationManager
+
+<h3>AddProduct</h3>
+<hr />
+<EditForm Model="ProductInfo" OnValidSubmit="SaveProduct">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <label> Name</label>
+        <ValidationMessage For="@(()=>ProductInfo.Name)" />
+        <InputText @bind-Value="ProductInfo.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Price</label>
+        <ValidationMessage For="@(()=>ProductInfo.Price)" />
+        <InputNumber @bind-Value="ProductInfo.Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Category</label>
+        <ValidationMessage For="@(()=>ProductInfo.Category)" />
+        <InputText @bind-Value="ProductInfo.Category" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> Description</label>
+        <ValidationMessage For="@(()=>ProductInfo.Description)" />
+        <InputText @bind-Value="ProductInfo.Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label> MfgDAte</label>
+        <ValidationMessage For="@(()=>ProductInfo.MfgDate)" />
+        <InputDate @bind-Value="ProductInfo.MfgDate" class="form-control" />
+    </div>
+    <button class="btn btn-primary" type="submit"> Save Product</button>
+</EditForm>
+
+@code {
+    Product ProductInfo = new Product();
+
+
+    public async Task SaveProduct()
+    {
+       
+        await _repository.AddProduct(ProductInfo);
+        NavigationManager.NavigateTo("/products");
+    }
+
+}

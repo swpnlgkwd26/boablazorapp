@@ -1,0 +1,33 @@
+﻿@page "/parent"
+
+
+<div class="card bg-light mt-3" style="width:40rem">
+    <h3>Parent</h3>
+
+    <input type="text" @bind="UserName" @bind:event="oninput" />
+    <h2> Data Received From Child = @DataReceivedFromChild </h2>
+
+    <hr />
+    <div class="card bg-light mt-3" style="width:30rem">
+        <div class="card-body">
+            <CascadingValue Name="UserName" Value="@UserName">
+                <Child UserNameFromParent="@UserName" SendToParent="GetDataFromChild" />
+            </CascadingValue>
+        </div>
+
+    </div>
+
+</div>
+
+@code {
+    public string UserName { get; set; }
+
+    public string DataReceivedFromChild { get; set; }
+
+    public void GetDataFromChild(string value)
+    {
+        DataReceivedFromChild = value;
+    }
+
+
+}

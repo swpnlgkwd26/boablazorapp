@@ -1,0 +1,17 @@
+﻿
+<input type="text" @bind="ProductId" />
+<button class="btn btn-primary" @onclick="Search"> Search</button>
+
+@code {
+
+    public string ProductId { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SendProductIdToParent { get; set; }
+
+    public async Task Search()
+    {
+       await SendProductIdToParent.InvokeAsync(ProductId);
+    }
+
+}

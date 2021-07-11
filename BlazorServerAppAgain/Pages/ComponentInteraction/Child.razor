@@ -1,0 +1,29 @@
+﻿<h3>Child</h3>
+<h4> Data Received From Parent :  @UserNameFromParent</h4>
+
+<!--holds a data that you want to send it to Parent-->
+
+<input type="text" @bind="EmailInformationForParent" 
+       @bind:event="oninput"  @onchange="SendEmailToParent"  />
+<button @onclick="SendEmailToParent"  > Send To Parent</button>
+<GrandChild/>
+
+@code {
+
+    // Expecting the Data for below Property From Parent
+    [Parameter]
+    public string UserNameFromParent { get; set; }
+
+    public string EmailInformationForParent { get; set; }
+
+    // Event Call back
+    [Parameter]
+    public EventCallback<string> SendToParent { get; set; }
+
+    public void SendEmailToParent()
+    {
+        SendToParent.InvokeAsync(EmailInformationForParent);
+    }
+
+
+}

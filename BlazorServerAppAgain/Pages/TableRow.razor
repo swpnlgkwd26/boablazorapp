@@ -1,0 +1,36 @@
+﻿@inject NavigationManager   NavigationManager
+
+<tr>
+    <td> @ProductID</td>
+    <td> @Name</td>
+    <td> @Price</td>
+    <td> @Category</td>
+    <td>
+        <button class="btn btn-danger"> Delete</button>
+        <button class="btn btn-warning" @onclick="NavigatetoUpdate"> Update</button>
+    </td>
+</tr>
+@code {
+    [Parameter]
+    public int ProductID { get; set; }
+    [Parameter]
+    public string Name { get; set; }
+    [Parameter]
+    public decimal Price { get; set; }
+    [Parameter]
+    public string Category { get; set; }
+
+    public void Delete()
+    {
+        Console.WriteLine("Delete Called");
+    }
+    public void Update()
+    {
+        Console.WriteLine("Update Called");
+    }
+    public void NavigatetoUpdate()
+    {
+        NavigationManager.NavigateTo("/update/"+ProductID);
+    }
+
+}

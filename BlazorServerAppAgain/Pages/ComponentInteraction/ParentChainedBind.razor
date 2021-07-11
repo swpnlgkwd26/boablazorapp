@@ -1,0 +1,13 @@
+﻿@page "/parentchainedbind"
+
+<h3>ParentChainedBind</h3>
+<input type="text" @bind="Title" @bind:event="oninput" />
+
+<ChildChainedBind @bind-MainTitle="Title" 
+                  @bind-MainTitle:event="MainTitleChanged"/>
+
+@code {
+
+    public string Title { get; set; } = "Two Way Data Binding";
+
+}
