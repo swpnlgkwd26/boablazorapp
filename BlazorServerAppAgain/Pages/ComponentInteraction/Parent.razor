@@ -18,6 +18,12 @@
     </div>
 
 </div>
+<Alert>
+    <strong>Data Deleted Successfully</strong>
+</Alert>
+<button @onclick="CallChildFunction"> Call Child Functions</button>
+<ModalChild @ref="dialog"></ModalChild>
+
 
 @code {
     public string UserName { get; set; }
@@ -27,6 +33,12 @@
     public void GetDataFromChild(string value)
     {
         DataReceivedFromChild = value;
+    }
+
+    public ModalChild dialog;
+    public void CallChildFunction()
+    {
+        dialog.ModalChildFunction();
     }
 
 

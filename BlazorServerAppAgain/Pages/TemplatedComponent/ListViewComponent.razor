@@ -1,0 +1,22 @@
+﻿
+@*Going to Display the data in list format. ITs nto specific to particular type
+<h3>ListViewComponent</h3>*@
+@typeparam TItem
+
+<ul>
+    @foreach (var item in Items)
+    {
+        // Content Inside this for each loop lets say will be passed from the component who is using it
+        @ItemTemplate(item)
+    }
+</ul>
+
+@code {
+
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplate { get; set; }
+
+    [Parameter]
+    public IReadOnlyList<TItem> Items { get; set; }
+
+}

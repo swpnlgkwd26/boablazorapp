@@ -98,7 +98,7 @@ using BlazorServerAppAgain.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\Pages\ComponentInteraction\ParentChainedBind.razor"
+#line 12 "D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\Pages\ComponentInteraction\ParentChainedBind.razor"
        
 
     public string Title { get; set; } = "Two Way Data Binding";

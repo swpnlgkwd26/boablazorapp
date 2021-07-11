@@ -1,0 +1,43 @@
+﻿@page "/parentlifecycle"
+@inject IJSRuntime JSRuntime
+
+<h3>ParentLifecycleComponent</h3>
+<ChildLifecycleComponent FirstName="Sachin"></ChildLifecycleComponent>
+
+<div @ref="divElement">Text During Render</div>
+<h3> @count</h3>
+<button @onclick="IncrementCount"> Increment</button>
+<button @onclick="TurnOn"> TurnOn</button>
+<button  @onclick="TurnOff"> TurnOff</button>
+@code {
+
+    private ElementReference divElement;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await Task.Delay(10000);
+        await JSRuntime.InvokeVoidAsync("setElementText", divElement, "Text After Render");
+    }
+
+    bool shouldRender = true;
+    int count = 0;
+    public void TurnOff()
+    {
+        shouldRender = false;
+    }
+    public void TurnOn()
+    {
+        shouldRender = true;
+    }
+    public void IncrementCount()
+    {
+        count++;
+    }
+
+    protected override bool ShouldRender()
+    {
+        return shouldRender;
+    }
+
+
+}

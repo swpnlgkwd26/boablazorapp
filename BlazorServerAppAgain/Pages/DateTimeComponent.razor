@@ -54,7 +54,67 @@ Show Or Hide
 <button class="@redColor" @onclick="AddFunction"> Save</button>
 <input type="text"  @bind="ProductName"/>
 <button class="@yellowColor" @onclick="()=>SearchFunction(ProductName)"> Cancel</button>
+<h3> Key Demo</h3>
+@*<ul>
+    @foreach (var item in products)
+    {
+        <li @key="item.ProductID" >@item.Name</li>
+    }
+</ul>*@
+
+<BlazorServerAppAgain.Pages.TemplatedComponent.ListViewComponent Items="products">
+    <ItemTemplate Context="product">
+        <li>@product.Name @product.ProductID</li>
+    </ItemTemplate>
+</BlazorServerAppAgain.Pages.TemplatedComponent.ListViewComponent>
+
+<BlazorServerAppAgain.Pages.TemplatedComponent.TableViewComponent Items="products">
+    <TableHeader>
+        <th> Id</th>
+        <th> Name</th>
+    </TableHeader>
+    <RowTemplate>
+        <td>@context.ProductID</td>
+        <td>@context.Name</td>
+    </RowTemplate>
+</BlazorServerAppAgain.Pages.TemplatedComponent.TableViewComponent>
+
+
+
+
+<h3> Splatting Demo</h3>
+ Old Way
+<input maxlength="10" placeholder="Enter Name" required="required" size="40"/>
+ New Way
+<input @attributes="NameAttributes"/>
+
+
 @code {
+    // Declare Varaible
+    
+
+    public Dictionary<string, object> NameAttributes { get; set; } = new Dictionary<string, object>
+    {
+        { "maxlength" , "10" },
+        {"placeholder", "Enter Name" },
+        {"required" , "required" },
+        {"size" , "40" }
+    };
+
+
+
+
+    List<Product> products = new List<Product>
+    {
+        new Product
+        {
+            ProductID =1,Name="IPhone"
+        },
+         new Product
+        {
+            ProductID =2,Name="Samsung"
+        }
+    };
 
     public string  ProductName { get; set; }
 

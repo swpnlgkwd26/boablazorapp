@@ -1,0 +1,14 @@
+﻿
+<div class="alert alert-secondary alert-dismissible fade show mt-4">
+    @*we want some content*@
+    @ChildContent
+</div>
+
+
+@code {
+
+    // Child Content
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+}

@@ -98,7 +98,7 @@ using BlazorServerAppAgain.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 22 "D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\Pages\ComponentInteraction\Parent.razor"
+#line 28 "D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\Pages\ComponentInteraction\Parent.razor"
        
     public string UserName { get; set; }
 
@@ -107,6 +107,12 @@ using BlazorServerAppAgain.Data;
     public void GetDataFromChild(string value)
     {
         DataReceivedFromChild = value;
+    }
+
+    public ModalChild dialog;
+    public void CallChildFunction()
+    {
+        dialog.ModalChildFunction();
     }
 
 

@@ -226,3 +226,15 @@ D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\o
 D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\BlazorServerAppAgain.dll
 D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\BlazorServerAppAgain.pdb
 D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\BlazorServerAppAgain.genruntimeconfig.cache
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ComponentInteraction\Alert.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\Razor\Pages\ComponentInteraction\Alert.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ComponentInteraction\ModalChild.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\Razor\Pages\ComponentInteraction\ModalChild.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\TemplatedComponent\ListViewComponent.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\Razor\Pages\TemplatedComponent\ListViewComponent.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\TemplatedComponent\TableViewComponent.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\Razor\Pages\TemplatedComponent\TableViewComponent.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\LifecycleMethods\ChildLifecycleComponent.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\LifecycleMethods\ParentLifecycleComponent.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\Razor\Pages\LifecycleMethods\ChildLifecycleComponent.razor.g.cs
+D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\obj\Debug\netcoreapp3.1\Razor\Pages\LifecycleMethods\ParentLifecycleComponent.razor.g.cs

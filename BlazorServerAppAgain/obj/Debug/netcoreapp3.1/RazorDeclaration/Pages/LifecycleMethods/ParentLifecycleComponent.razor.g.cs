@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorServerAppAgain.Pages
+namespace BlazorServerAppAgain.Pages.LifecycleMethods
 {
     #line hidden
     using System;
@@ -89,7 +89,8 @@ using BlazorServerAppAgain.Data;
 #line default
 #line hidden
 #nullable disable
-    public partial class DateTimeComponent : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/parentlifecycle")]
+    public partial class ParentLifecycleComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -97,74 +98,43 @@ using BlazorServerAppAgain.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 92 "D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\Pages\DateTimeComponent.razor"
+#line 12 "D:\FreeLancerAssignments\BankOfAmericaBatch3\boablazorapp\BlazorServerAppAgain\Pages\LifecycleMethods\ParentLifecycleComponent.razor"
        
-    // Declare Varaible
-    
 
-    public Dictionary<string, object> NameAttributes { get; set; } = new Dictionary<string, object>
+    private ElementReference divElement;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        { "maxlength" , "10" },
-        {"placeholder", "Enter Name" },
-        {"required" , "required" },
-        {"size" , "40" }
-    };
-
-
-
-
-    List<Product> products = new List<Product>
-    {
-        new Product
-        {
-            ProductID =1,Name="IPhone"
-        },
-         new Product
-        {
-            ProductID =2,Name="Samsung"
-        }
-    };
-
-    public string  ProductName { get; set; }
-
-    public void AddFunction()
-    {
-        Console.WriteLine("Add Function Called");
-    }
-    public void SearchFunction(string productName)
-    {
-        Console.WriteLine(productName);
+        await Task.Delay(10000);
+        await JSRuntime.InvokeVoidAsync("setElementText", divElement, "Text After Render");
     }
 
-
-
-    string redColor = "red-background";
-    string yellowColor = "yellow-background";
-
-
-    public string SelectedCategory { get; set; }
-
-    string[] categories = { "Cricket", "Chess", "Soccer" };
-
-
-    // Declare an Property
-    public bool IsChecked { get; set; }
-
-    // Source
-    ProductViewModel productViewModel = new ProductViewModel
+    bool shouldRender = true;
+    int count = 0;
+    public void TurnOff()
     {
-        ProductID = 1,
-        Category = "Chess",
-        Description = "Chess",
-        MfgDate = DateTime.Now,
-        Name = "Chess Board",
-        Price = 100
-    };
+        shouldRender = false;
+    }
+    public void TurnOn()
+    {
+        shouldRender = true;
+    }
+    public void IncrementCount()
+    {
+        count++;
+    }
+
+    protected override bool ShouldRender()
+    {
+        return shouldRender;
+    }
+
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
     }
 }
 #pragma warning restore 1591
